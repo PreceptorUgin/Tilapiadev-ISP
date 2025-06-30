@@ -7,7 +7,6 @@ body {
     color: white;
 }
 
-/* ASCII art como fundo semi-transparente */
 body::before {
     content: 
     "                                      \A\
