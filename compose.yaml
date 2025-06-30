@@ -1,0 +1,44 @@
+#Docker Networks
+networks:
+  asa-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1
+    attachable: true
+
+services:
+  dns:
+    build: 
+      context: ./Dns
+      dockerfile: Dockerfile
+    container_name: DNS
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    networks:
+      asa-network:
+        ipv4_address: 172.25.0.2
+
+  proxy:
+    build: 
+      context: ./Proxy
+      dockerfile: Dockerfile
+    container_name: Proxy
+    ports:
+      - "80:80/tcp"
+    depends_on:
+      - portal
+    networks:
+      asa-network:
+        ipv4_address: 172.25.0.3
+
+  portal:
+    build: 
+      context: ./Portal
+      dockerfile: Dockerfile
+    container_name: Portal
+    networks:
+      asa-network:
+        ipv4_address: 172.25.0.4
