@@ -1,0 +1,54 @@
+body {
+  background-color: #01675d; 
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  background-repeat: repeat;
+  text-shadow: 1px 1px #000;
+}
+
+h1 {
+  font-size: 26px;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000080;
+  border: 2px solid #000080;
+  padding: 10px;
+  margin-top: 20px;
+  width: fit-content;
+}
+
+.marquee {
+  font-weight: bold;
+  color: yellow;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.nav-table {
+  margin-top: 25px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-spacing: 15px;
+}
+
+.button {
+  font-family: 'Courier New', monospace;
+  background-color: #dcdcdc;
+  border: 2px outset #999;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
+  text-shadow: none;
+}
+
+.button:hover {
+  background-color: #ffcc00;
+  border: 2px inset #666;
+}
+
+.content {
+  margin-top: 30px;
+  background-color: rgba(0, 0, 128, 0.7);
+  padding: 15px;
+  width: 70%;
+  border: 3px double white;
+}
