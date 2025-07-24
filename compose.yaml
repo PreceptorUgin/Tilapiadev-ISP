@@ -1,0 +1,14 @@
+# Rede Compartilhada
+networks:
+  isp_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1
+    attachable: true
+
+include:
+    - path: ./Email/docker-compose-email.yaml
+    - path: ./DNS/docker-compose-dns.yaml
+    - path: ./Webmail/docker-compose-webmail.yaml

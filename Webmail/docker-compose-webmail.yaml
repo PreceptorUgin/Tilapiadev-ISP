@@ -1,0 +1,36 @@
+services:
+  webmail:
+    build: 
+      context: ./conf-webmail
+      dockerfile: Dockerfile
+    container_name: Webail
+    ports:
+      - 80:80/tcp
+    volumes:
+      - roundcube_data:/var/www/html
+    environment:
+      - ROUNDCUBEMAIL_DEFAULT_HOST=imap://email
+      - ROUNDCUBEMAIL_SMTP_SERVER=smtp://email
+    depends_on:
+      - email
+    networks:
+      isp_network:
+        ipv4_address: 172.25.0.6
+  db:
+    image: mariadb
+    container_name: maildb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: roundcube
+      MYSQL_USER: roundcube
+      MYSQL_PASSWORD: roundcube
+    volumes:
+      - ./conf-webmail/mysql_data:/var/lib/mysql
+    networks:
+      isp_network:
+        ipv4_address: 172.25.0.7
+
+volumes:
+  roundcube_data:
+  db_data:
