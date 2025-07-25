@@ -1,23 +1,18 @@
 ;
-; BIND data file for asa.isp zone
+; BIND data file for tilapia.asa.isp zone
 ;
 $TTL    604800
 @       IN      SOA     ns.asa.isp. root.asa.isp. (
-                              3       ; Serial
+                              2       ; Serial
                          604800       ; Refresh
                           86400       ; Retry
                         2419200       ; Expire
                          604800 )     ; Negative Cache TTL
 
-; Registros da zona principal
+; Registros da subzona
 @                IN     NS      ns.asa.isp.
 @                IN     A       127.0.0.1
 ns               IN     A       127.0.0.1
 www              IN     A       127.0.0.1
-webmail          IN     CNAME   www
-
-; Delegação da subzona tilapia.asa.isp
-tilapia          IN     NS      ns.asa.isp.
-
-; Delegação da subzona bacalhau.asa.isp
-bacalhau         IN     NS      ns.asa.isp.
+hotsite          IN     CNAME   www
+signin           IN     CNAME   www
