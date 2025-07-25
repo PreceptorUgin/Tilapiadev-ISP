@@ -10,5 +10,3 @@ networks:
 
 include:
     - path: ./Email/docker-compose-email.yaml
-    - path: ./DNS/docker-compose-dns.yaml
-    - path: ./Webmail/docker-compose-webmail.yaml
