@@ -1,0 +1,9 @@
+services:
+  hotsite-client01:
+    build: 
+      context: ./conf-hotsite-client01
+      dockerfile: Dockerfile
+    container_name: hotsite-client01
+    networks:
+      isp_network:
+        ipv4_address: 172.25.0.251

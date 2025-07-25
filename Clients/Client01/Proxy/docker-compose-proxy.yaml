@@ -1,0 +1,11 @@
+services:
+  proxy-client01:
+    build: 
+      context: ./conf-proxy-client01
+      dockerfile: Dockerfile
+    container_name: proxy-client01
+    depends_on:
+      - portal-client01
+    networks:
+      isp_network:
+        ipv4_address: 172.25.0.254
