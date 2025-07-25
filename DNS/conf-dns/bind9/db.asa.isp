@@ -10,12 +10,10 @@ $TTL    604800
                          604800 )     ; Negative Cache TTL
 
 
-@       IN      NS      ns.asa.isp.
-@       IN      A       127.0.0.1
-ns      IN      A       127.0.0.1
-www     IN      A       127.0.0.1
-
-webmail IN      CNAME   www
-
-@       IN      MX  10  mail.asa.isp.
-mail    IN      A       127.0.0.1
+@                IN     NS      ns.asa.isp.
+@                IN     A       127.0.0.1
+ns               IN     A       127.0.0.1
+www              IN     A       127.0.0.1
+webmail          IN     CNAME   www
+tilapia          IN     CNAME   www
+hotsite.tilapia  IN     CNAME   www

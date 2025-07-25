@@ -9,5 +9,12 @@ networks:
     attachable: true
 
 include:
+    # Provedor
     - path: ./DNS/docker-compose-dns.yaml
+    - path: ./Proxy/docker-compose-proxy.yaml
     - path: ./Portal/docker-compose-portal.yaml
+    # Cliente 1
+    - path: ./Clients/Client01/Proxy/docker-compose-proxy.yaml
+    - path: ./Clients/Client01/Portal/docker-compose-portal.yaml
+    - path: ./Clients/Client01/Hotsite/docker-compose-hotsite.yaml
+#    - path: ./Clients/Client01/Sign/docker-compose-sign.yaml
