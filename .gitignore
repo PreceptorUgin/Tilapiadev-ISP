@@ -63,7 +63,6 @@ yarn-error.log*
 # Arquivos de documentação gerados
 /docs/_build/
 /docs/_out/
-/docs/*
 
 # Arquivos específicos do projeto (substitua pelos seus)
 /pasta_temporaria/

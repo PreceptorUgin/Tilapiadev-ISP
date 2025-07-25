@@ -9,4 +9,5 @@ networks:
     attachable: true
 
 include:
-    - path: ./Email/docker-compose-email.yaml
+    - path: ./DNS/docker-compose-dns.yaml
+    - path: ./Portal/docker-compose-portal.yaml

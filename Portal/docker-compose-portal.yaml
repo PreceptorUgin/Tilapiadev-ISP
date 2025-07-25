@@ -1,0 +1,11 @@
+services:
+  portal:
+    build: 
+      context: ./conf-portal
+      dockerfile: Dockerfile
+    container_name: Portal
+    ports:
+      - "80:80/tcp"
+    networks:
+      isp_network:
+        ipv4_address: 172.25.0.252
