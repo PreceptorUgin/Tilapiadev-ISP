@@ -6,4 +6,4 @@ services:
     container_name: portal-client01
     networks:
       isp_network:
-        ipv4_address: 172.25.0.253
+        ipv4_address: 172.25.1.2
