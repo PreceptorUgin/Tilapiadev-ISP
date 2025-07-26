@@ -1,67 +1,107 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Entrati's Eye</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Discador BOL Proxy</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .main-content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 20px;
+    }
+
+    .sidebar {
+      width: 150px;
+    }
+
+    .ad-img {
+      width: 100%;
+      margin-bottom: 15px;
+      border: 2px solid #ccc;
+    }
+
+    .dialer-box {
+      background: url('img/discador_retro.png') no-repeat center center;
+      background-size: contain;
+      width: 320px;
+      height: 360px;
+      position: relative;
+      margin: 0 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .dialer-box button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #00cc00;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px #333;
+      cursor: pointer;
+    }
+
+    .dialer-box p {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 5px 10px;
+      border-radius: 4px;
+      margin: 5px 0;
+    }
+  </style>
 </head>
 <body>
-  <div class="ascii-bg">
-<pre>
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                               .@@@@%                                               
-                                             ...@@@@%..                                             
-                                             ---#####--                                             
-                                             =++-----++                                             
-                                             ::-=====::                                             
-                                             *#*:::::##                                             
-                                             *##:::::##                                             
-                                             ---    .--                                             
-                                             +##@@@@@##                                             
-                      ==++=                ==@@@%%%%%@@==.               .++==:                     
-                      ++..:++         --=##%%@@@@@@@@@@%%###--         =+=..++:                     
-                      ++..:++... .....==+%%@@@@@@@@@@@@@@@%%==.....  ..=++..++:                     
-                        **=  %%. :**@@@@@@@**************%@@@@@@#**  %%: .**                        
-                          -@@  @@@@@##*++##%%%%%@@@@@%%%%###++##@@@@@  %@%                          
-                             @@%%#**==***@@@@@@@@@@@@@@@@@@@**==***%%@@:                            
-                          :##%%#####==+**@@@@@@@@@@@@@@@@@@@**==*####%%##*                          
-                        ..-@@#######==++*@@@@@@@@@@@@@@@@@@@++==#######@@%..                        
-                        @@@*********... .@@@@@@@@@@@@@@@@@@@ ...+********#@@                        
-                        @@%++  +****  ...::@@@@@@@@@@@@@@=::.   +****  =++@@                        
-                      @@==-    +++**::...  ::%@@@@@@@@@::.. ..::+**++    .==@@-                     
-               ..--=##**::.    ::-**++:......----------.......+++*+::    .::**###--...              
-               ..==+@@==...      :****:::..  ..........  ...::****+      ...==%@@==...              
-               --@@@@@==...      .--**=====..............-====**=--      ...==%@@@@--:              
-                      @@==-         ==+****==-:::::::::==+****==.        .==@@-                     
-                      ..@@#::       .....==**************===.....      .::@@...                     
-                        @@#::           .==**************===           .:-@@                        
-                        @@@##--.           --------------.           --*##@@                        
-                          -@@++:::                                .::++@@%                          
-                             @@**+..                            ..:**@@:                            
-                          :##::%@%##==.....               ....==*##@@::*##                          
-                          -@@  @@@@@++.....              .....++%@@@@  %@%                          
-                        **=  %%.    %%#**++--...    ...--=++**%%:    %%: .**                        
-                      **  :**           .##%%%@%%%%%%@@%%###           +*+  **:                     
-                      ==++=                  %@@#####@@                  .++==:                     
-                      :::::                  *%%@@@@@%%                  .::::.                     
-                                             +##@@@@@##                                             
-                                             ---    .--                                             
-                                             *##:::::##                                             
-                                             ::-=====::                                             
-                                             -==-----==                                             
-                                             =++-----++                                             
-                                             ---#####--                                             
-.@@@@@
-</pre>
+  <div class="header">
+    <img src="https://img.bol.com.br/icon-touch.png" alt="Logo BOL retrô">
+    <div>
+      <strong>Discador BOL Proxy</strong><br>
+      Conectando você ao túnel retrô da internet
+    </div>
   </div>
 
-  <div class="button-wrapper">
-    <a href="https://hotsite.tilapia.asa.isp" class="redirect-button">Hotsite</a>
+  <div class="banner">
+    🚀 Acesse sua internet com o melhor da tecnologia dos anos 2000! 🚀
   </div>
+
+  <div class="main-content">
+    <div class="sidebar left">
+      <img src="https://www.verminososporfutebol.com.br/wp-content/uploads/2023/10/Bomba-Patch-capa-2023.jpg" class="ad-img">
+      <img src="https://acdn-us.mitiendanube.com/stores/001/426/908/products/gospel1-9b67ecfb3b09dde62a16540917489921-1024-1024.webp" class="ad-img">
+      <img src="https://i.ytimg.com/vi/5iH1AF-OKKg/maxresdefault.jpg" class="ad-img">
+    </div>
+
+    <div class="dialer-box">
+      <p>Pronto para discar para: <strong>São Paulo - SP</strong></p>
+      <p>Conexão via linha telefônica</p>
+      <button onclick="window.location.href='https://example.com'">DISCAR</button>
+      <p style="font-size: 11px; margin-top: 10px;">Desligue o telefone antes de conectar. :)</p>
+    </div>
+
+    <div class="sidebar right">
+      <img src="https://lh4.googleusercontent.com/h0Q6LtbrQ0BkD46L0sY_Xk50K9TGqVMGGPvwtQ-GH5fHYk57HEKRS0RxbDeEw5RFeaKtkg5HCw7ZFUf2cH0DeXJlxujM5f45fS1PZFO_39qaG_IJZsRMMiDYtH9-p4ukalFKVoL1" class="ad-img">
+      <img src="img/encarte_aol_cd.gif" alt="AOL CD" class="ad-img">
+      <img src="img/banner_geocities.png" alt="GeoCities" class="ad-img">
+    </div>
+  </div>
+
+  <div class="ads">
+    💾 Aumente sua velocidade com nosso TurboDiscador 56K!<br>
+    💡 Dica: use com navegador Netscape ou IE6 para melhor experiência.
+  </div>
+
+  <div class="footer">
+    BOL Proxy &copy; 2000-2025 - Uma viagem no tempo com HTML<br>
+    Projeto universitário sem fins lucrativos
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
