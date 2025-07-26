@@ -1,5 +1,5 @@
 services:
-  proxy-client01:
+  proxy-client02:
     build: 
       context: ./conf-proxy-client02
       dockerfile: Dockerfile
@@ -8,4 +8,4 @@ services:
       - portal-client02
     networks:
       isp_network:
-        ipv4_address: 172.25.0.254
+        ipv4_address: 172.25.2.1

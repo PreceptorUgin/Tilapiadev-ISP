@@ -1,5 +1,5 @@
 services:
-  portal-client01:
+  portal-client02:
     build: 
       context: ./conf-portal-client02
       dockerfile: Dockerfile
