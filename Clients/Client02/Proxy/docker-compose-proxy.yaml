@@ -4,8 +4,6 @@ services:
       context: ./conf-proxy-client02
       dockerfile: Dockerfile
     container_name: proxy-client02
-    depends_on:
-      - portal-client02
     networks:
       isp_network:
         ipv4_address: 172.25.2.1

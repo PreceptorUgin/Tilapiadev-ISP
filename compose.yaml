@@ -19,5 +19,6 @@ include:
     - path: ./Clients/Client01/Hotsite/docker-compose-hotsite.yaml
 #    - path: ./Clients/Client01/Sign/docker-compose-sign.yaml
     # Cliente 2
+    - path: ./Clients/Client02/CMS/docker-compose-cms.yaml
     - path: ./Clients/Client02/Proxy/docker-compose-proxy.yaml
     - path: ./Clients/Client02/Portal/docker-compose-portal.yaml

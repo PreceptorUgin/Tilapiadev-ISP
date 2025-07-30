@@ -1,0 +1,28 @@
+services:
+  wordpress:
+    build: 
+      context: ./conf-cms-cliente2
+      dockerfile: Dockerfile
+    container_name: wp-cliente2
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppass
+      WORDPRESS_DB_NAME: wordpress
+    depends_on:
+      - db
+    networks:
+      isp_network:
+        ipv4_address: 172.25.2.6
+
+  db:
+    image: mariadb:11
+    container_name: wp-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppass
+    networks:
+      isp_network:
+        ipv4_address: 172.25.2.7
