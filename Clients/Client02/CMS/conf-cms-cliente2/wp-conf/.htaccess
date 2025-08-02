@@ -2,10 +2,10 @@ RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
 
-# add trailing slash to /wp-admin
-RewriteRule ^wp-admin$ wp-admin/ [R=301,L]
-
+# Serve arquivos existentes
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
+
+# Redireciona todo o resto
 RewriteRule . index.php [L]
