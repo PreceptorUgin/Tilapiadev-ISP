@@ -6,4 +6,4 @@ services:
     container_name: hotsite-client01
     networks:
       isp_network:
-        ipv4_address: 172.25.0.251
+        ipv4_address: 172.25.1.3

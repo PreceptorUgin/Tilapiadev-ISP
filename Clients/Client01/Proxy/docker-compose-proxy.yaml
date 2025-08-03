@@ -8,4 +8,4 @@ services:
       - portal-client01
     networks:
       isp_network:
-        ipv4_address: 172.25.0.254
+        ipv4_address: 172.25.1.1
