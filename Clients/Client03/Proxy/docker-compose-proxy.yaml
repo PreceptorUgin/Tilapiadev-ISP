@@ -1,0 +1,12 @@
+services:
+  proxy-client03:
+    build: 
+      context: ./conf-proxy-client03
+      dockerfile: Dockerfile
+    container_name: proxy-client03
+    depends_on:
+      - portal-client03
+      - wp-cliente3
+    networks:
+      isp_network:
+        ipv4_address: 172.25.3.1
