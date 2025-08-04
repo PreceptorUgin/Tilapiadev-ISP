@@ -3,20 +3,21 @@
 ;
 $TTL    604800
 @       IN      SOA     ns.asa.isp. root.asa.isp. (
-                              2       ; Serial (incremente após editar)
+                              3       ; Serial
                          604800       ; Refresh
                           86400       ; Retry
                         2419200       ; Expire
                          604800 )     ; Negative Cache TTL
 
+; Registros da zona principal
+@                IN     NS      ns.asa.isp.
+@                IN     A       127.0.0.1
+ns               IN     A       127.0.0.1
+www              IN     A       127.0.0.1
+webmail          IN     CNAME   www
 
-@       IN      NS      ns.asa.isp.
-@       IN      A       127.0.0.1
-ns      IN      A       127.0.0.1
-www     IN      A       127.0.0.1
+; Delegação da subzona tilapia.asa.isp
+tilapia          IN     NS      ns.asa.isp.
 
-portal  IN      CNAME   www
-webmail IN      CNAME   www
-
-@       IN      MX  10  mail.asa.isp.
-mail    IN      A       127.0.0.1
+; Delegação da subzona bacalhau.asa.isp
+bacalhau         IN     NS      ns.asa.isp.

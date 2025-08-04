@@ -1,0 +1,15 @@
+services:
+  proxy:
+    build: 
+      context: ./conf-proxy
+      dockerfile: Dockerfile
+    container_name: Proxy
+    volumes:
+      - ./conf-proxy/conf-apache/certs:/etc/apache2/certs:ro
+    ports:
+      - "443:443/tcp"
+    depends_on:
+      - portal
+    networks:
+      isp_network:
+        ipv4_address: 172.25.0.3

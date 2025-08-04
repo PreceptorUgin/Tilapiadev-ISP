@@ -1,0 +1,9 @@
+services:
+  portal-client02:
+    build: 
+      context: ./conf-portal-client02
+      dockerfile: Dockerfile
+    container_name: portal-client02
+    networks:
+      isp_network:
+        ipv4_address: 172.25.2.2
