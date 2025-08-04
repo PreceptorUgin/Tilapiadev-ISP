@@ -1,7 +1,7 @@
 services:
-  wp-db:
+  wp-db-2:
     image: mariadb:11
-    container_name: wp-db
+    container_name: wp-db-2
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: wordpress
@@ -18,7 +18,7 @@ services:
       dockerfile: Dockerfile
     container_name: wp-cliente2
     environment:
-      WORDPRESS_DB_HOST: wp-db:3306
+      WORDPRESS_DB_HOST: wp-db-2:3306
       WORDPRESS_DB_USER: wpuser
       WORDPRESS_DB_PASSWORD: wppass
       WORDPRESS_DB_NAME: wordpress
@@ -26,9 +26,9 @@ services:
       WORDPRESS_ADMIN_USER: admin
       WORDPRESS_ADMIN_PASSWORD: admin123
       WORDPRESS_ADMIN_EMAIL: admin@asa.isp
-      WORDPRESS_SITE_TITLE: "Minha Rede"
+      WORDPRESS_SITE_TITLE: "Rede Bacalhau"
     depends_on:
-      - wp-db
+      - wp-db-2
     networks:
       isp_network:
         ipv4_address: 172.25.2.6

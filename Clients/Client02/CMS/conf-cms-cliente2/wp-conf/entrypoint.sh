@@ -11,11 +11,11 @@ set -euo pipefail
 : "${WORDPRESS_DB_NAME:?WORDPRESS_DB_NAME não definido}"
 
 # ---------- Configuráveis via ambiente ----------
-BASE_DOMAIN="${WORDPRESS_BASE_DOMAIN:-bacalhau.asa.isp}"
+BASE_DOMAIN="${WORDPRESS_BASE_DOMAIN:-wp.bacalhau.asa.isp}"
 ADMIN_USER="${WORDPRESS_ADMIN_USER:-admin}"
 ADMIN_PASS="${WORDPRESS_ADMIN_PASSWORD:-admin123}"
 ADMIN_EMAIL="${WORDPRESS_ADMIN_EMAIL:-admin@${BASE_DOMAIN}}"
-SITE_TITLE="${WORDPRESS_SITE_TITLE:-Rede Tilapia}"
+SITE_TITLE="${WORDPRESS_SITE_TITLE:-Rede Bacalhau}"
 WP_PATH="/var/www/html"
 
 # ---------- WP-CLI com memória aumentada ----------
