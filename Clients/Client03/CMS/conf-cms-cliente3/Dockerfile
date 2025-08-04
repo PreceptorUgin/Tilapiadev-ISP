@@ -22,6 +22,7 @@ COPY ./wp-conf/.htaccess /var/www/html/.htaccess
 # Copia entrypoint
 COPY ./wp-conf/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN sed -i 's/\r$//' /usr/local/bin/entrypoint.sh
 
 # Suprime aviso de FQDN
 RUN echo "ServerName bacalhau.asa.isp" >> /etc/apache2/apache2.conf
