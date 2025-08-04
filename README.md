@@ -66,10 +66,12 @@ ISP-Infra/
    cd Tilapiadev-ISP
    ```
 3. **Subir serviços**
+   - No Linux
    ```bash
    chmod +x ./script.py
    python3 ./script.py
    ```
+   - No Windows
    ```powershell
    python script.py
    ```
