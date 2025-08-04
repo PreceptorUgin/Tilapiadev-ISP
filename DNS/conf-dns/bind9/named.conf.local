@@ -7,6 +7,7 @@ zone "asa.isp"{
     file "/etc/bind/db.asa.isp";
     allow-transfer {
         127.0.0.1;
+        1.1.1.1;
     };
 };
 
@@ -15,6 +16,7 @@ zone "bacalhau.asa.isp"{
     file "/etc/bind/db.bacalhau.asa.isp";
     allow-transfer {
         127.0.0.1;
+        1.1.1.1;
     };
 };
 
@@ -23,6 +25,7 @@ zone "piaba.asa.isp"{
     file "/etc/bind/db.piaba.asa.isp";
     allow-transfer {
         127.0.0.1;
+        1.1.1.1;
     };
 };
 
@@ -31,6 +34,7 @@ zone "tilapia.asa.isp"{
     file "/etc/bind/db.tilapia.asa.isp";
     allow-transfer {
         127.0.0.1;
+        1.1.1.1;
     };
 };
 

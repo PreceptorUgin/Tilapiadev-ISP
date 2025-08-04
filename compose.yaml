@@ -22,3 +22,7 @@ include:
     - path: ./Clients/Client02/CMS/docker-compose-cms.yaml
     - path: ./Clients/Client02/Proxy/docker-compose-proxy.yaml
     - path: ./Clients/Client02/Portal/docker-compose-portal.yaml
+    # Cliente 3
+    - path: ./Clients/Client03/CMS/docker-compose-cms.yaml
+    - path: ./Clients/Client03/Proxy/docker-compose-proxy.yaml
+    - path: ./Clients/Client03/Portal/docker-compose-portal.yaml
