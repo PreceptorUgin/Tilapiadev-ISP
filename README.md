@@ -12,14 +12,14 @@ Este projeto acadêmico, para a disciplina Administração de Sistemas Abertos (
 - **Webmail** (Roundcube)
 
 Além dos serviços para os clientes com:
--- Cliente 1:
+Cliente 1:
 
 - **Hotsite**
 - **Portal**
 - **Proxy Reverso Secundário** (Nginx)
 - **Sign-in**
 
--- Cliente 2 & 3:
+Cliente 2 & 3:
 
 - **CMS** (Wordpress)
 - **Portal**
