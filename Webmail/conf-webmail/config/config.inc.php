@@ -8,7 +8,7 @@ $config['default_host'] = 'imap://email';
 $config['default_port'] = 143;
 
 $config['smtp_server'] = 'smtp://email';
-$config['smtp_port'] = 25;
+$config['smtp_port'] = 587;
 $config['smtp_user'] = '%u';
 $config['smtp_pass'] = '%p';
 
