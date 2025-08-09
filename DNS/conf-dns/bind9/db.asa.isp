@@ -16,6 +16,9 @@ ns               IN     A       127.0.0.1
 www              IN     A       127.0.0.1
 webmail          IN     CNAME   www
 
+@                IN     MX  10  mail.asa.isp.
+mail             IN     A       127.0.0.1
+
 ; Delegação da subzona tilapia.asa.isp
 tilapia          IN     NS      ns.asa.isp.
 
