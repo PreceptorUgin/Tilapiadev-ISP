@@ -11,20 +11,46 @@ Este projeto acadêmico, para a disciplina Administração de Sistemas Abertos (
 - **Portal** estático (Nginx)
 - **Webmail** (Roundcube)
 
+Além dos serviços para os clientes com:
+Cliente 1:
+
+- **Hotsite**
+- **Portal**
+- **Proxy Reverso Secundário** (Nginx)
+- **Sign-in**
+
+Cliente 2 & 3:
+
+- **CMS** (Wordpress)
+- **Portal**
+- **Proxy** (Nginx)
+
 O trabalho é organizado em 4 sprints ao longo de 8 semanas, seguindo Scrum e PMBoK.
 
 ## Estrutura do Repositório
 ```
 ISP-Infra/
-├── dns/                  # Configurações Bind9
-├── mail/                 # Postfix e Dovecot
-├── proxy/                # Apache Reverse Proxy
-├── portal/               # Site estático do ISP
-├── webmail/              # Interface Webmail
-├── clients/              # Microsserviços dos clientes
-├── docs/                 # Documentação por sprint e cronograma
-├── .env.example                  # Variáveis de ambiente
-└── docker-compose.yml    # Serviços do provedor
+├── Clients/              # Microsserviços de clientes
+│   ├── Client01/
+│   │   ├── Hotsite/
+│   │   ├── Portal/
+│   │   ├── Proxy/
+│   │   └── Sign/
+│   ├── Client02/
+│   │   ├── CMS/ 
+│   │   ├── Portal/
+│   │   └── Proxy/
+│   └── Client03/
+│       ├── CMS/
+│       ├── Portal/
+│       └── Proxy/
+├── DNS/                  # Servidor DNS (Bind9)
+├── mail/                 # Servidor de e-mail (Postfix + Dovecot)
+├── proxy/                # Apache Reverse Proxy principal
+├── portal/               # Portal principal do ISP
+├── webmail/              # Roundcube
+├── compose.yaml          # Orquestração principal
+└── script.py             # Utilitários e automação
 ```
 
 ## Como Começar
@@ -33,19 +59,24 @@ ISP-Infra/
    - Docker >= 20.10
    - Docker Compose >= 1.29
    - Git
+   - Python3
 2. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu_usuario/ISP-Infra.git
-   cd ISP-Infra
+   git clone https://github.com/PreceptorUgin/Tilapiadev-ISP
+   cd Tilapiadev-ISP
    ```
-3. **Subir serviços básicos**
+3. **Subir serviços**
+   - No Linux
    ```bash
-   docker-compose up -d dns mail proxy portal webmail
+   chmod +x ./script.py
+   python3 ./script.py
    ```
-4. **Verificar logs**
-   ```bash
-   docker-compose logs -f
+   - No Windows
+   ```powershell
+   python script.py
    ```
+Em caso de erro entre em contato em:
+[juliocaynaaguiar@gmail.com](mailto:juliocaynaaguiar@gmail.com)
 
 ---
 *Este README será atualizado conforme o projeto avança.*

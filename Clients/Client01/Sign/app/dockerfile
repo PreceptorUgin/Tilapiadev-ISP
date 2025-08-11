@@ -1,0 +1,3 @@
+FROM salesfilho/sign-app:latest
+
+ENV API_BASE_URL="http://sign.com/api"
