@@ -6,6 +6,7 @@ services:
     container_name: proxy-client01
     depends_on:
       - portal-client01
+      - sign-app
     networks:
       isp_network:
         ipv4_address: 172.25.1.1

@@ -53,18 +53,6 @@ if [ ! -f "${WP_PATH}/wp-load.php" ]; then
   "${WP_CLI[@]}" core download
 fi
 
-# ---------- Garante wp-config.php (opcional: cria se não existir) ----------
-if [ ! -f wp-config.php ]; then
-  echo "Gerando wp-config.php a partir das variáveis de ambiente..."
-  "${WP_CLI[@]}" config create \
-    --dbname="${WORDPRESS_DB_NAME}" \
-    --dbuser="${WORDPRESS_DB_USER}" \
-    --dbpass="${WORDPRESS_DB_PASSWORD}" \
-    --dbhost="${WORDPRESS_DB_HOST}" \
-    --skip-check
-  # Note: você pode injetar salts dinamicamente se quiser
-fi
-
 # ---------- Instalação e ativação da rede multisite ----------
 if ! "${WP_CLI[@]}" core is-installed --url="${BASE_DOMAIN}" >/dev/null 2>&1; then
   echo "Instalando WordPress base em ${BASE_DOMAIN}..."
@@ -85,9 +73,13 @@ if ! "${WP_CLI[@]}" core is-installed --url="${BASE_DOMAIN}" >/dev/null 2>&1; th
     --admin_email="${ADMIN_EMAIL}" \
     --subdomains \
     --skip-email
+
+  # ATIVAÇÃO DO TEMA PADRÃO (APÓS INSTALAÇÃO COMPLETA)
+  echo "Ativando tema padrão..."
+  "${WP_CLI[@]}" theme activate twentytwentyfour
+  touch "${WP_PATH}/.theme_configured"
 else
   echo "WordPress já instalado."
-  # opcional: verificar se Multisite está ativo
 fi
 
 # ---------- Delegar ao entrypoint original para subir o Apache ----------
