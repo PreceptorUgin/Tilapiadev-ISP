@@ -1,52 +1,63 @@
+# compose.yaml
+
 services:
   ### Banco de Dados (PostgreSQL) ###
-  db:
+  sign-db:
     image: postgres:15-alpine
     container_name: sign-db
+    platform: linux/arm64
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER:-dbuser}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-dbuserpass123}
+      POSTGRES_DB: ${DB_NAME:-docsign_db}
+
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-dbuser} -d ${DB_NAME:-docsign_db}"]
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      isp_network:
+        ipv4_address: 172.25.1.6
 
   ### Backend/API ###
-  backend:
+  sign-api:
     image: salesfilho/sign-api:latest
     container_name: sign-api
+    platform: linux/arm64
     environment:
-      DB_HOST: db
-      DB_PORT: ${DB_PORT}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_NAME: ${DB_NAME}
-    ports:
-      - "${BACKEND_PORT}:8000"
+      DB_HOST: sign-db
+      DB_PORT: ${DB_PORT:-5432}
+      DB_USER: ${DB_USER:-dbuser}
+      DB_PASSWORD: ${DB_PASSWORD:-dbuserpass123}
+      DB_NAME: ${DB_NAME:-docsign_db}
     depends_on:
-      db:
+      sign-db:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      test: ["CMD", "curl", "-f", "http://sign-api:8000/health"]
       interval: 10s
-      timeout: 5s
+      timeout: 10s
       retries: 5
+    networks:
+      isp_network:
+        ipv4_address: 172.25.1.5
 
   ### Frontend / App ###
-  frontend:
+  sign-app:
     image: salesfilho/sign-app:latest
     container_name: sign-app
+    platform: linux/arm64
     environment:
-      API_BASE_URL: ${API_BASE_URL}
-    ports:
-      - "${FRONTEND_PORT}:80"
+      API_BASE_URL: ${API_BASE_URL:-http://sign.tilapia.asa.isp:8000/api}
     depends_on:
-      backend:
+      sign-api:
         condition: service_healthy
+    networks:
+      isp_network:
+        ipv4_address: 172.25.1.4
 
 volumes:
   postgres_data:

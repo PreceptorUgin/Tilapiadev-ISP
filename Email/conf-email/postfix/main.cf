@@ -1,0 +1,48 @@
+# Configurações gerais de fila e desempenho
+maximal_queue_lifetime = 2h
+bounce_queue_lifetime = 1h
+minimal_backoff_time = 300s
+maximal_backoff_time = 4000s
+local_destination_concurrency_limit = 5
+default_destination_concurrency_limit = 10
+default_destination_recipient_limit = 50
+
+# Identificação do servidor SMTP
+smtpd_banner = asa smtp server
+biff = no
+readme_directory = no
+compatibility_level = 3.6
+
+# TLS (modo permissivo para testes)
+smtpd_tls_security_level = may
+# smtpd_tls_cert_file = /etc/ssl/certs/seu-cert.pem  # Descomente e ajuste quando tiver o certificado
+# smtpd_tls_key_file = /etc/ssl/private/sua-key.key # Descomente e ajuste quando tiver o certificado
+
+recipient_delimiter = +
+myhostname = email.asa.isp
+myorigin = /etc/mailname
+mydestination = $myhostname, localhost.$mydomain, localhost
+relayhost =
+
+# Redes confiáveis para relay sem autenticação
+mynetworks = 127.0.0.0/8 10.0.0.0/8
+
+# Interfaces e protocolos
+inet_interfaces = all
+inet_protocols = ipv4
+
+# Caixa de entrada do usuário (Maildir)
+home_mailbox = Maildir/
+
+# Mapas de alias
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+
+# SASL - autenticação via Dovecot
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+smtpd_tls_auth_only = yes
+
+# Restrições para relaying
+smtpd_relay_restrictions = permit_sasl_authenticated, permit_mynetworks, reject_unauth_destination
