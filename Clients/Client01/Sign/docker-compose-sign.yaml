@@ -18,6 +18,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      isp_network:
+        ipv4_address: 172.25.1.6
 
   ### Backend/API ###
   backend:
@@ -30,16 +33,17 @@ services:
       DB_USER: ${DB_USER:-dbuser}
       DB_PASSWORD: ${DB_PASSWORD:-dbuserpass123}
       DB_NAME: ${DB_NAME:-docsign_db}
-    ports:
-      - "${BACKEND_PORT:-8000}:8000"
     depends_on:
       db:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://backend:8000/health"]
+      test: ["CMD", "curl", "-f", "http://sign-api:8000/health"]
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      isp_network:
+        ipv4_address: 172.25.1.5
 
   ### Frontend / App ###
   frontend:
@@ -47,12 +51,13 @@ services:
     container_name: sign-app
     platform: linux/arm64
     environment:
-      API_BASE_URL: ${API_BASE_URL:-http://localhost:8000/api}
-    ports:
-      - "${FRONTEND_PORT:-8080}:80"
+      API_BASE_URL: ${API_BASE_URL:-http://sign.tilapia.asa.isp:8000/api}
     depends_on:
       backend:
         condition: service_healthy
+    networks:
+      isp_network:
+        ipv4_address: 172.25.1.4
 
 volumes:
   postgres_data:
